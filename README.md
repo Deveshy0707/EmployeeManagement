@@ -1,6 +1,7 @@
 # EmployeeManagement
 
 ### Users/Authentication
+`localhost:8088/login/{userName}/{password}`
 
 `localhost:8088/login/admin/admin`
 `localhost:8088/login/employee/employee `
