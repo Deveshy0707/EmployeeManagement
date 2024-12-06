@@ -1,0 +1,44 @@
+type Employee {
+  id: ID!
+  name: String!
+  age: Int!
+  employeeClass: String
+  subjects: [String!]
+  attendance: Int
+}
+
+input EmployeeRequest {
+  name: String!
+  age: Int!
+  employeeClass: String
+  subjects: [String!]
+  attendance: Int
+}
+
+type Query {
+
+  getEmployees(
+    name : String
+    age : Int
+    employeeClas: String
+  ): [Employee]
+
+  getEmployee(id: ID!): Employee
+
+  getEmployeesWithPagingSorting(
+    pageNumber: Int!
+    pageSize: Int!
+    sortBy: String = "id"
+  ): [Employee]
+}
+
+type Mutation {
+  addEmployee(request: EmployeeRequest!): Employee!
+
+  updateEmployee(id: ID!, request: EmployeeRequest!): Employee!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
