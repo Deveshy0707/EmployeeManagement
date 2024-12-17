@@ -35,7 +35,7 @@ public class EmployeeController {
 
         return employeeService.getEmployeesWithPagingSorting(
                 pageNumber, pageSize,
-                sortBy != null ? sortBy : "id"
+                sortBy
         );
     }
 

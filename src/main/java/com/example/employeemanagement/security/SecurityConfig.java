@@ -29,8 +29,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorize -> authorize
-                    .requestMatchers( "/login/**").permitAll()
-                    .requestMatchers("/graphql/**").authenticated()
+                    .requestMatchers( "/login/**", "/graphiql/**", "/graphql/**").permitAll()
                     .anyRequest().authenticated()
             )
             .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
